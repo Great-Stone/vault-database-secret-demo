@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: spring-boot-vault-demo
+  cloud:
+    vault:
+      authentication: TOKEN
+      token: root
+      host: 127.0.0.1
+      port: 8200
+      scheme: http
+      fail-fast: true
+      config:
+        lifecycle:
+          enabled: true
+          min-renewal: 5s
+          expiry-threshold: 10s
+      generic:
+        enabled: false
+      database:
+        enabled: true
+        role: mysql-dynamic
+        backend: database
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/mysql
+
